@@ -24,23 +24,35 @@ class Funcionario(Fisica,ABC):
     def _verificar_cpf(self,valor):
         '''Método para verificação do CPF'''
         self._verificar_cpf_tipo_invalido(valor)
-        self._verificar_cpf_vazio_invalido(valor)    
+        self._verificar_cpf_vazio_invalido(valor) 
+
+        self.cpf = valor
+        return self.cpf   
     
     def _verificar_rg(self,valor):
         '''Método para verificação do RG'''
         self._verificar_rg_tipo_invalido(valor)
         self._verificar_rg_vazio_invalido(valor)
+
+        self.rg = valor
+        return self.rg   
     
     def _verificar_matricula(self,valor):
         '''Método para verificação da matricula'''
         self._verificar_matricula_tipo_invalido(valor)
         self._verificar_matricula_vazio_invalido(valor)
+
+        self.matricula = valor
+        return self.matricula   
     
-    def _verificar_salario(self,valor):
-        '''Método para verificação do salario'''
-        self._verificar_salario_tipo_invalido(valor)
-        self._verificar_salario_vazio_invalido(valor)
-        self._verificar_salario_negativo_invalido(valor)
+    # def _verificar_salario(self,valor):
+    #     '''Método para verificação do salario'''
+    #     self._verificar_salario_tipo_invalido(valor)
+    #     self._verificar_salario_vazio_invalido(valor)
+    #     self._verificar_salario_negativo_invalido(valor)
+
+    #     self.salario = valor
+    #     return self.salario   
 
 #======================================================================
 
@@ -52,7 +64,7 @@ class Funcionario(Fisica,ABC):
 
     def _verificar_cpf_vazio_invalido(self,valor):
          if not valor.strip(): 
-             raise TypeError('O CPF não pode estar vazio.')
+            raise TypeError('O CPF não pode estar vazio.')
          
 #======================================================================
 
@@ -64,7 +76,7 @@ class Funcionario(Fisica,ABC):
 
     def _verificar_rg_vazio_invalido(self,valor):
          if not valor.strip(): 
-             raise TypeError('O RG não pode estar vazio.')
+            raise TypeError('O RG não pode estar vazio.')
 
 
 #======================================================================
@@ -77,7 +89,7 @@ class Funcionario(Fisica,ABC):
 
     def _verificar_matricula_vazio_invalido(self,valor):
          if not valor.strip(): 
-             raise TypeError('A Matricula não pode estar vazio.')
+            raise TypeError('A Matricula não pode estar vazio.')
 
 #======================================================================
 

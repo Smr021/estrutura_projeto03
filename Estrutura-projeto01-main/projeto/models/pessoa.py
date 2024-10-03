@@ -3,7 +3,7 @@ from projeto.models.enums.sexo import Sexo
 from projeto.models.endereco import Endereco
 
 @abstractmethod
-class Pessoa(ABC):
+class Pessoa(Endereco,ABC):
     def __init__(self,id:int,nome:str,telefone:str,email:str,sexo:Sexo, endereco:Endereco) -> None:
         self.id       = self._verificar_id(id)
         self.nome     = self._verificar_nome(nome)
@@ -84,7 +84,6 @@ class Pessoa(ABC):
     def __str__(self) -> str:
         return (
             f"\n Nome: {self.nome}"
-            f"\n Idade: {self.idade}"
             f"\n Sexo: {self.sexo}"
             )
     

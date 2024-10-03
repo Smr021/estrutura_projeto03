@@ -16,8 +16,7 @@ def fisica_valida():
     return fisica
 
 def test_verificar_dataNascimento_tipo_invalido(fisica_valida):
-    assert fisica_valida.fisica == '25/10/2005'
-    
+    assert fisica_valida.dataNascimento == '25/10/2005'
 
 def test_verificar_dataNascimento_tipo_invalido():
     with pytest.raises(TypeError,match = 'A data de nascimento deve ser um texto.'):

@@ -63,8 +63,7 @@ def test_verificar_cpf_vazio_invalido():
 def test_verificar_rg_tipo_invalido():
     with pytest.raises(TypeError,match = 'O RG deve ser um texto.'):
         Funcionario(515,'Gabriel Fuboca','71555-9555','gabriel.fuboca@gmail.com',
-                    Endereco('Rua A', '33','logo ali', '45658-565','salvador',
-                             UnidadeFederativa.SAO_PAULO),
+                    Endereco('Rua A', '33','logo ali', '45658-565','salvador',UnidadeFederativa.SAO_PAULO),
                              Sexo.MASCULINO,EstadoCivil.SOLTEIRO,
                              '25/10/2005',"956.745.558-78",00,'0101',Setor.ENGENHARIA,1000)
 

@@ -9,10 +9,26 @@ class Engenheiro(Funcionario):
                  endereco: Endereco,
                  sexo: Sexo ,
                  estadoCivil:EstadoCivil, 
-                 dataNascimento: str ,cpf:str,rg:str,matricula:str,setor:Setor,salario:float) -> None:
-        super().__init__(id, nome ,telefone ,email ,endereco ,sexo ,estadoCivil ,dataNascimento)
+                 dataNascimento: str ,cpf:str,rg:str,matricula:str,setor:Setor,salario:float,crea:str) -> None:
+        super().__init__(id, nome ,telefone ,email ,endereco ,sexo ,estadoCivil ,dataNascimento,cpf,rg,matricula,setor,salario)
         self.crea = self._verificar_crea(crea)
 
     def _verificar_crea(self,valor):
         '''Método para verificação do CREA'''
+        self._verificar_crea_tipo_invalido_retorna_erro(valor)
+        self._verificar_crea_vazio_invalido_retorna_erro(valor)
+
+        self.crea = valor
+        return self.crea
+    
+
+    """Método para verificação do CREA invalido"""
+    def _verificar_crea_tipo_invalido_retorna_erro(self,valor):
+        if not isinstance (valor,str):
+            raise TypeError('O CREA deve ser um texto.')
+
+    def _verificar_crea_vazio_invalido_retorna_erro(self,valor):
+         if not valor.strip(): 
+            raise TypeError('O CREA não pode estar vazio.')
+
     

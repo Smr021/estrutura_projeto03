@@ -17,30 +17,20 @@ class Fisica(Pessoa,ABC):
         self.dataNascimento = self._verificar_dataNascimento(dataNascimento)
 
     def _verificar_dataNascimento(self,valor):
-        '''Método para verificação de data de nascimento'''
+        #'''Método para verificação de data de nascimento'''
         self._verificar_dataNascimento_tipo_invalido(valor)
         self._verificar_dataNascimento_vazio_invalido(valor)
-
 
         self.dataNascimento = valor
         return self.dataNascimento
 
 
     def _verificar_dataNascimento_tipo_invalido(self,valor):
-        """Método para verificação de data de nascimento invalido"""
+        #"""Método para verificação de data de nascimento invalido"""
         if not isinstance (valor,str):
             raise TypeError('A data de nascimento deve ser um texto.')
 
     def _verificar_dataNascimento_vazio_invalido(self,valor):
          if not valor.strip(): 
-             raise TypeError('A data de nascimento não pode estar vazio.')
+            raise TypeError('A data de nascimento não pode estar vazio.')
 
-
-    def __str__(self) -> str:
-        return (
-            f"{super().__str__()}"
-            f"\nCPF: {self.cpf}"
-            f"\nRG: {self.rg}"
-            f"\nData de nascimento: {self.dataNascimento}"
-            f"\nSexo: {self.sexo.value}"
-            )  
